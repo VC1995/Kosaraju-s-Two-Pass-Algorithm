@@ -44,7 +44,7 @@ public class SCC {
             File myFile=new File("SCC.txt");
             BufferedReader reader = new BufferedReader( new FileReader(myFile) ) ;
             String line=null;
-//            System.out.println(" "+(int)(0.5 + (m*0.5))+" and "+(int)(0.5 - (m*0.5)));
+
             while( (line=reader.readLine()) != null) {
                 String[] token = line.split(" ") ;
                 
@@ -91,10 +91,12 @@ public class SCC {
     
     // go .. all stuff happens here 
     public void go() {
+    
         // setting-up
         initialise();
         loadVertices(-1);
         System.out.println("First call started");
+        
         // first outer loop .. will decide finishing times 
         for(long j=n-1; j>0 ; j-- ) {
             if( !(explored.get(j)) ) {
@@ -118,7 +120,8 @@ public class SCC {
 
             }
         }
-
+        
+        // printing the sizes of SCCs
         System.out.println("\n"+ sizes );
     }
 }
